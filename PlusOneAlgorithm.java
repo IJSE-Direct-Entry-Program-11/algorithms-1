@@ -3,7 +3,7 @@ import java.util.*;
 public class PlusOneAlgorithm{
 
     public static void main(String[] args) {
-        int[] nums = {8,9};
+        int[] nums = {1,2,3,0};
         int pow = 1;
 
         int number = 0;
@@ -14,8 +14,14 @@ public class PlusOneAlgorithm{
     
         number++;
         int[] answer = new int[number / pow > 0 ? nums.length + 1: nums.length];
-        System.out.println(Arrays.toString(answer));
 
-        
+        if (answer.length == nums.length) pow /= 10;
+        for (int i = 0; i < answer.length; i++) {
+            answer[i] = number / pow;
+            number %= pow;
+            pow /= 10;
+        }
+
+        System.out.println(Arrays.toString(answer));
     }
 }
