@@ -22,8 +22,27 @@ public class InsertSortAlgo {
                     insertionIndex = j;
                     break;
                 }
+            }            
+            System.out.println("Insertion Index: " + insertionIndex);
+            
+            insertionIndex = -1;
+            int start = 0;
+            int end = i;
+            while (true){
+                if (start >= end) {
+                    insertionIndex = start;
+                    break;
+                }
+                int middle = (start + end) / 2;
+                if (nums[middle] == number){
+                    insertionIndex = middle;
+                    break;
+                }else if (nums[middle] < number){
+                    start = middle + 1;
+                }else {
+                    end = middle;
+                }
             }
-            if (insertionIndex == -1) insertionIndex = i;
             System.out.println("Insertion Index: " + insertionIndex);
 
             // Shifting
